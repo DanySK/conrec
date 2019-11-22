@@ -3,10 +3,7 @@
  */
 package conrec;
 
-import org.junit.Test;
 import utils.Demo;
-
-import static org.junit.Assert.*;
 
 public class RunDemo {
     public void run() {
