@@ -4,8 +4,8 @@ import conrec.Conrec;
 
 public class Demo {
 
-    public static final int SAMPLES = 100;
-    public static final int DIMENSION = 512;
+    private static final int SAMPLES = 100;
+    private static final int DIMENSION = 512;
 
     public static void main(String[] args) {
 
@@ -58,7 +58,7 @@ public class Demo {
         }
     }
 
-    public static double f(double x, double y) {
+    private static double f(double x, double y) {
         final double C = 0.842;
         return 1/(Math.pow((Math.pow(x,2) + (y-C)*(y+C)),2) + Math.pow((x*(y+C) + x*(y-C)),2));
     }

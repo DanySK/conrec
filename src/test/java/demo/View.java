@@ -12,10 +12,10 @@ public class View implements Render {
         void draw(Graphics2D g);
     }
 
-    public class DrawablePanel extends JPanel {
+    public static class DrawablePanel extends JPanel {
         private java.util.List<DrawOperation> operations = new ArrayList<DrawOperation>();
 
-        public void addDrawOperation(DrawOperation drawOp) {
+        void addDrawOperation(DrawOperation drawOp) {
             operations.add(drawOp);
         }
 
@@ -26,12 +26,12 @@ public class View implements Render {
         }
     }
 
-    private final JFrame frame = new JFrame();
     private final DrawablePanel panel = new DrawablePanel();
     private Mapper mapper;
 
-    public View(int dimension, Mapper mapper) {
+    View(int dimension, Mapper mapper) {
         this.mapper = mapper;
+        JFrame frame = new JFrame();
         frame.add(panel);
         frame.setVisible(true);
         frame.setSize(dimension, dimension);
