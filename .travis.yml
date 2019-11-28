@@ -18,7 +18,7 @@ env:
 jobs:
   include:
     - stage: check
-      name: "Deep check on reference OS and JDK"
+      name: "check"
       os: linux
       env:
         - JDK="adopt@1.11.0"
