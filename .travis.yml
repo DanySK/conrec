@@ -10,7 +10,10 @@ stages:
   - check
   - test
 env:
- matrix:
+  global:
+    - GRAVIS="https://raw.githubusercontent.com/DanySK/Gravis-CI/master/"
+    - PUBLISH="false"
+  matrix:
     - JDK="adopt@1.11.0"
     - JDK="adopt-openj9@1.11.0"
     - JDK="adopt@1.12.0"
