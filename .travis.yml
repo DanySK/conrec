@@ -7,6 +7,7 @@ os:
   - linux
 dist: xenial
 stages:
+  - check
   - test
 env:
  matrix:
@@ -14,6 +15,18 @@ env:
     - JDK="adopt-openj9@1.11.0"
     - JDK="adopt@1.12.0"
     - JDK="adopt-openj9@1.12.0"
+jobs:
+  include:
+    - stage: check
+      name: "Deep check on reference OS and JDK"
+      os: linux
+      env:
+        - JDK="adopt@1.11.0"
+      script:
+        - ./gradlew clean check --scan --parallel
+script:
+  - cd "$TRAVIS_BUILD_DIR"/alchemist
+  - ./gradlew test --scan --parallel
 before_cache:
   - curl "${GRAVIS}.clean_gradle_cache.sh" --output .clean_gradle_cache.sh
   - bash .clean_gradle_cache.sh
