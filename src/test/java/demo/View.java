@@ -1,4 +1,4 @@
-package utils;
+package demo;
 
 import conrec.Render;
 
@@ -13,7 +13,7 @@ public class View implements Render {
     }
 
     public static class DrawablePanel extends JPanel {
-        private java.util.List<DrawOperation> operations = new ArrayList<DrawOperation>();
+        private java.util.List<DrawOperation> operations = new ArrayList<>();
 
         void addDrawOperation(DrawOperation drawOp) {
             operations.add(drawOp);
@@ -53,14 +53,6 @@ public class View implements Render {
         int y2 = (int) Math.ceil(viewEnd.getY());
         panel.addDrawOperation(g -> g.drawLine(x1, y1, x2, y2));
         panel.repaint();
-    }
-
-    public int getWidth() {
-        return panel.getWidth();
-    }
-
-    public int getHeight() {
-        return panel.getHeight();
     }
 
 }
