@@ -25,7 +25,6 @@ jobs:
       script:
         - ./gradlew clean check --parallel
 script:
-  - cd "$TRAVIS_BUILD_DIR"/alchemist
   - ./gradlew test --parallel
 before_cache:
   - curl "${GRAVIS}.clean_gradle_cache.sh" --output .clean_gradle_cache.sh
