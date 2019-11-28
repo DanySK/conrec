@@ -1,5 +1,5 @@
 # Conrec
-Conrec is an algorithm for contouring surfaces (in other words, it finds the contour lines of a two-dimensional function), for more information about it see [Conrec paper](http://paulbourke.net/papers/conrec/).
+Conrec is an algorithm for contouring surfaces (in other words, it finds the contour lines of a two-dimensional function), for more information about it see the [Conrec paper](http://paulbourke.net/papers/conrec/).
 
 This library only aims to make Conrec algorithm available in other (more complex) projects, and it only contains the source code downloadable from the link above.
 
