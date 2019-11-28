@@ -1,51 +1,19 @@
-reference_jdk: &reference_jdk
-  'JDK="adopt@1.11.0"'
-reference_os: &reference_os
-  'linux'
-official_repo: &official_repo
-  'paagamelo/Conrec'
-language: bash
+language: shell
 git:
   depth: false
-dist: xenial
 os:
   - osx
   - windows
-  - *reference_os
+  - linux
 dist: xenial
 stages:
-  - check
   - test
 env:
  matrix:
-    - *reference_jdk
+    - JDK="adopt@1.11.0"
     - JDK="adopt-openj9@1.11.0"
     - JDK="adopt@1.12.0"
     - JDK="adopt-openj9@1.12.0"
-jobs:
-  include:
-    - stage: check
-      name: "check"
-      os: *reference_os
-      env:
-        - *reference_jdk
-      script:
-        - ./gradlew check --scan --parallel
-      workspaces:
-        create:
-          name: linux-reference-build
-          paths:
-            - "${TRAVIS_BUILD_DIR}/build"
-    - stage: test
-      name: "test"
-      os: *reference_os
-      env:
-        - *reference_jdk
-      script:
-        - ./gradlew test --scan --parallel
-      workspaces:
-        use:
-          - linux-reference-build
 before_cache:
   - curl "${GRAVIS}.clean_gradle_cache.sh" --output .clean_gradle_cache.sh
   - bash .clean_gradle_cache.sh
