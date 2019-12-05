@@ -14,18 +14,17 @@ java {
     sourceCompatibility = JavaVersion.VERSION_1_6
 }
 
-tasks.withType<JavaCompile>().configureEach {
-    if (!name.contains("Test")) {
-        println("Sconfiguring $name")
-        options.apply {
-            isFork = true
-            val java6Home: String by project
-            forkOptions.javaHome = file(java6Home)
+if (System.getenv("CI") == true.toString()) {
+    tasks.withType<JavaCompile>().configureEach {
+        if (!name.contains("Test")) {
+            println("Sconfiguring $name")
+            options.apply {
+                isFork = true
+                val java6Home: String by project
+                forkOptions.javaHome = file(java6Home)
+            }
         }
     }
-}
-
-if (System.getenv("CI") == true.toString()) {
     signing {
         val signingKey: String? by project
         val signingPassword: String? by project
