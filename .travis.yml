@@ -33,9 +33,9 @@ jobs:
       env:
         - EXTRA_TESTS=true
 #jobs:
-  #exclude:
-    #- os: *reference_os
-      #env: *reference_jdk
+  exclude:
+    - os: *reference_os
+      env: *reference_jdk
   #include:
     #- env: EXTRA_TESTS=true
     #- stage: deploy
