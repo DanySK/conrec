@@ -35,6 +35,8 @@ jobs:
       env:
         - *reference_jdk
         - TEST=test
+      script:
+        - ./gradlew clean check
 #jobs:
   exclude:
     - os: *reference_os
