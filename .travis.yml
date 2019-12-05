@@ -29,8 +29,9 @@ env:
     #- JDK="adopt-openj9@1"
 jobs:
   include:
-    - env:
-      - EXTRA_TESTS=true
+    - stage: check
+      env:
+        - EXTRA_TESTS=true
 #jobs:
   #exclude:
     #- os: *reference_os
