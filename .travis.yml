@@ -8,7 +8,7 @@ language: shell
 git:
   depth: false
 os:
-  - osx
+#  - osx
   - windows
   - *reference_os
 dist: bionic
