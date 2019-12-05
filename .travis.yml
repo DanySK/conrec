@@ -31,7 +31,7 @@ jobs:
   include:
     - stage: check
       env:
-        - EXTRA_TESTS=true
+        - *reference_jdk
 #jobs:
   exclude:
     - os: *reference_os
