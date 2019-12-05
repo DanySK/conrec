@@ -59,7 +59,7 @@ jobs:
         - ./gradlew publish -x test --scan
 before_install:
   - curl "${GRAVIS}.install-jdk-travis.sh" --output .install-jdk-travis.sh
-  - bash .install-jdk-travis.sh && source ~/.jdk_config
+  - source .install-jdk-travis.sh
   - echo jabba is $jabba
   - export JAVA6_JDK="$(echo $($jabba ls-remote | grep -m1 1.6))"
   - echo $JAVA6_JDK
