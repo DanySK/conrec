@@ -32,6 +32,8 @@ jobs:
     - os: *reference_os
       env: *reference_jdk
   include:
+    - stage: deploy
+      env: NOTHING=test
     - stage: check
       name: "Deep check on reference OS and JDK"
       os: *reference_os
