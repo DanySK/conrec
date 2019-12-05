@@ -15,7 +15,7 @@ dist: bionic
 stages:
   - check
   - test
-#  - deploy
+  - deploy
 env:
   global:
     - GRAVIS="https://raw.githubusercontent.com/DanySK/Gravis-CI/master/"
