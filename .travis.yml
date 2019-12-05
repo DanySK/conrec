@@ -56,7 +56,7 @@ jobs:
         - export ORG_GRADLE_PROJECT_signingKey=$(cat secrets.asc)
         - rm secrets.asc
       script:
-        - ./gradlew publish -x test --scan
+        - ./gradlew publish -x test
 before_install:
   - curl "${GRAVIS}.install-jdk-travis.sh" --output .install-jdk-travis.sh
   - source .install-jdk-travis.sh
@@ -69,7 +69,7 @@ before_install:
   - echo $JAVA6_HOME
   - $jabba use $ACTUAL_JDK
 script:
-  - ./gradlew test --parallel --scan
+  - ./gradlew test --parallel
 before_cache:
   - curl "${GRAVIS}.clean_gradle_cache.sh" --output .clean_gradle_cache.sh
   - bash .clean_gradle_cache.sh
