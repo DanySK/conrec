@@ -33,9 +33,9 @@ jobs:
       env: *reference_jdk
   include:
     - stage: check
+      name: "Deep check on reference OS and JDK"
       script: echo ciao
     - stage: check
-      name: "Deep check on reference OS and JDK"
       os: *reference_os
       env:
         - *reference_jdk
