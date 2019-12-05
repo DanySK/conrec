@@ -13,7 +13,7 @@ public class View implements Render {
     }
 
     public static class DrawablePanel extends JPanel {
-        private java.util.List<DrawOperation> operations = new ArrayList<>();
+        private java.util.List<DrawOperation> operations = new ArrayList<DrawOperation>();
 
         void addDrawOperation(DrawOperation drawOp) {
             operations.add(drawOp);
@@ -22,7 +22,9 @@ public class View implements Render {
         @Override
         public void paint(Graphics g) {
             super.paint(g);
-            operations.forEach(op -> op.draw((Graphics2D)g));
+            for (final DrawOperation drawOperation: operations) {
+                drawOperation.draw((Graphics2D)g);
+            }
         }
     }
 
@@ -47,11 +49,16 @@ public class View implements Render {
         Mapper.Point viewStart = mapper.mapEnvToView(start);
         Mapper.Point viewEnd = mapper.mapEnvToView(end);
 
-        int x1 = (int) Math.ceil(viewStart.getX());
-        int y1 = (int) Math.ceil(viewStart.getY());
-        int x2 = (int) Math.ceil(viewEnd.getX());
-        int y2 = (int) Math.ceil(viewEnd.getY());
-        panel.addDrawOperation(g -> g.drawLine(x1, y1, x2, y2));
+        final int x1 = (int) Math.ceil(viewStart.getX());
+        final int y1 = (int) Math.ceil(viewStart.getY());
+        final int x2 = (int) Math.ceil(viewEnd.getX());
+        final int y2 = (int) Math.ceil(viewEnd.getY());
+        panel.addDrawOperation(new DrawOperation() {
+            @Override
+            public void draw(final Graphics2D g) {
+                g.drawLine(x1, y1, x2, y2);
+            }
+        });
         panel.repaint();
     }
 
