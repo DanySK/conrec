@@ -31,10 +31,10 @@ jobs:
   include:
     - stage: check
       name: "Deep check on reference OS and JDK"
-      #os: *reference_os
-      os: 'linux'
+      os: *reference_os
       env:
         - *reference_jdk
+        - TEST=test
 #jobs:
   exclude:
     - os: *reference_os
