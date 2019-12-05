@@ -40,23 +40,23 @@ jobs:
         - *reference_jdk
       script:
         - ./gradlew clean check --parallel
-    - stage: deploy
-      name: "Reports and deployment"
-      if: repo = env(OFFICIAL_REPO_SLUG) AND type != pull_request
-      os: *reference_os
-      env:
-        # Signing
-        - secure: "H6S7xs/ptNjEPHAF3D1svMAj2HVeKa+ow4VllrW+9vfPbSk69jAoWBlmTsoXb/72w+eWRN0WEE4IZ9OTTcv3CEz/5yOlE/LHtAQ4+V7To64dHHOgcXjccasLFwd9iK3oWcD4VWoUG2sCHBTHE+bpJvEkHA+x7TuU5Xcg0GzyrXbu2qWQ1SwwXdnb4an8M/U5bwsxIFQ85ulGirleShDmDB9HRxRGRuxNjd/PfnsBJVRuyw3mc6YRsrd9/ad1hioQLX314MKXx7HNR8ABHFapEXPWssaq26hrze9402HxxnaM9nfZeyklknyPa3gscIMZr124lLQOGLDYjGA39waAnSXPXjMSgt2kLFPUPwVN2KCagNhiHTVnZ5tTOkvkSqh8Wb+O6oSYYOM81ggABW7FebABAKL5ZARBaJG0bn9qMXLgN4+ZsVGUQ2hZbLX7g2Zqxkk++4lVla8sc5mwvJ9ymIkPoUuOWvKFOkL0gdL5GGu+CTBivZDmOsjaC5cybA5cS4bfsayg/lJZDPOVNfCD5sYx0hbVnwHsJlZuACNI59r8CFcRanl+ZFioE+IBMnRpkgUPS7xOMzyJ68BU/3+5uYiIAffbHF9vf6Ut7Tsvh3o4cmtO22E/HtPVB/rqYWcpf4KZOGyT+xy8WIeMjMj3QLhKQ65TL8MHTOY3dhpCS98="
-        # Central
-        - secure: "dWVww+IUROwQ1kahvtld8ec9ZwY5nrx8V9unsE2SFnt0fiCLQa2sQsOmo1xHAmyP66DG3yTIJC3TLfLK5fD4O4j6sAosVfrhkTPZWJXdqrucSVJcVZrgNCcaJy3uSM+XtMhN6a7JMpiZDXGZeqEmuwvhGmViAG89BiTlMusXLN5Gfb3G064OUBLoNNtuH/w3BHVA3DWMfzbfid7O1Iy1NLLA+dWtYAW0r206lQJ0LqWgsLtJs80LdKbB5udahCThn3R1/N2f8Y0WAeB7WEVffy7hQR7cChobGyB9wqebrhyrzQyJU1ktaUggd3j1kox0hsbVi/00OMQ0KbJ8d2zoJfC3FTW8dMEJM9PCKmBbDQ3GOvoSqlpks6/U7z+LSDEy+S/UpnOYES02WH4UlPRBhbimcqvq8A1o0bakopuY/UJxGCLEdw1GxRPowIPA/bQoDu5JbKeW7gpCbZLqkLcImh0vsSmYYeBkWA/e4unUcLbHPUkGp2GP8bz8ckt1VswK6Wf7MASqEP4XoUncz5C4AADhhtAyC63dRrbjSj7SBPajdiQlHdrepW+aqUvg1uspyI++fBHMGoLBLhmmrIqowHADmRrm8/4M6sSPNndWA6xKmYVHxdiDXNcLP6wDPu4Mb3yxA3N7TSSMXAreoVZ3RiTzPBzCqzTGL8q9rnvhOk8="
-        - secure: "d3CxWiTvTACHVla8wWYT9xYpPwx3G3JC9hQxUZnxxJLusLMV30aUazeAKJwSx+kuHZTj1sGrNI8FFog27348L/wKXhW+VXS/BaauqPrSwh+K+tb0sVUFkVuGS2F2r8aGTFgnPzxRj/7VMbSgZ39yE9YufDWkS0CGEF2+AZIp+Pmmr9hq3H8dMj76MU3PUBYZoFm/vZHNGQhdMG1WH3rawk7RX1xh+gkNTrvQuAsobRKv06mPn7lsu17/eGmvCPkAfGTwpEu86H9TScySAViAG0+I+VW2rP/Z3LP6QO+mIjuypD1cWJ7ZZCO7nBoKXR3YI0JVhjBtAeI8TfhnQ48a4zcHlz7GkfpKSEXgNdNDcwIOF05XL36lbC2Oy5frk2V2BHfXHMLS1l8l3E1V0BASeR5k5ZOBEMYjGOzXFC58+HIckQCxFtKPkL/T1UuaG7JTDUz6V3NHjkk3/iFUqnPQUeBMZh6+0MMnmWheP+2rW4PuQdOoFwYqHaigwz+IfqG9xWct7bhNaW3IjFuCVr/pJ+GfVZHvnsv65FXQh6qNvhA8OF1pVvUrIruMLgUvc4fR5Ga90Xc8Z8wFg/5POSAyVy2o/AN66hzQiotj+tmfAqhiOEUPAsezDeZOMs7EMuKKnxWq4v7qWi+6/T6w/8plB9jOVWm3n+sjGZ/ZHYRD8MI="
-        - *reference_jdk
-      install:
-        - openssl aes-256-cbc -K $encrypted_a1fb45ffe475_key -iv $encrypted_a1fb45ffe475_iv -in secrets.asc.enc -out secrets.asc -d
-        - export ORG_GRADLE_PROJECT_signingKey=$(cat secrets.asc)
-        - rm secrets.asc
-      script:
-        - ./gradlew publish -x test
+    #- stage: deploy
+      #name: "Reports and deployment"
+      #if: repo = env(OFFICIAL_REPO_SLUG) AND type != pull_request
+      #os: *reference_os
+      #env:
+        ## Signing
+        #- secure: "H6S7xs/ptNjEPHAF3D1svMAj2HVeKa+ow4VllrW+9vfPbSk69jAoWBlmTsoXb/72w+eWRN0WEE4IZ9OTTcv3CEz/5yOlE/LHtAQ4+V7To64dHHOgcXjccasLFwd9iK3oWcD4VWoUG2sCHBTHE+bpJvEkHA+x7TuU5Xcg0GzyrXbu2qWQ1SwwXdnb4an8M/U5bwsxIFQ85ulGirleShDmDB9HRxRGRuxNjd/PfnsBJVRuyw3mc6YRsrd9/ad1hioQLX314MKXx7HNR8ABHFapEXPWssaq26hrze9402HxxnaM9nfZeyklknyPa3gscIMZr124lLQOGLDYjGA39waAnSXPXjMSgt2kLFPUPwVN2KCagNhiHTVnZ5tTOkvkSqh8Wb+O6oSYYOM81ggABW7FebABAKL5ZARBaJG0bn9qMXLgN4+ZsVGUQ2hZbLX7g2Zqxkk++4lVla8sc5mwvJ9ymIkPoUuOWvKFOkL0gdL5GGu+CTBivZDmOsjaC5cybA5cS4bfsayg/lJZDPOVNfCD5sYx0hbVnwHsJlZuACNI59r8CFcRanl+ZFioE+IBMnRpkgUPS7xOMzyJ68BU/3+5uYiIAffbHF9vf6Ut7Tsvh3o4cmtO22E/HtPVB/rqYWcpf4KZOGyT+xy8WIeMjMj3QLhKQ65TL8MHTOY3dhpCS98="
+        ## Central
+        #- secure: "dWVww+IUROwQ1kahvtld8ec9ZwY5nrx8V9unsE2SFnt0fiCLQa2sQsOmo1xHAmyP66DG3yTIJC3TLfLK5fD4O4j6sAosVfrhkTPZWJXdqrucSVJcVZrgNCcaJy3uSM+XtMhN6a7JMpiZDXGZeqEmuwvhGmViAG89BiTlMusXLN5Gfb3G064OUBLoNNtuH/w3BHVA3DWMfzbfid7O1Iy1NLLA+dWtYAW0r206lQJ0LqWgsLtJs80LdKbB5udahCThn3R1/N2f8Y0WAeB7WEVffy7hQR7cChobGyB9wqebrhyrzQyJU1ktaUggd3j1kox0hsbVi/00OMQ0KbJ8d2zoJfC3FTW8dMEJM9PCKmBbDQ3GOvoSqlpks6/U7z+LSDEy+S/UpnOYES02WH4UlPRBhbimcqvq8A1o0bakopuY/UJxGCLEdw1GxRPowIPA/bQoDu5JbKeW7gpCbZLqkLcImh0vsSmYYeBkWA/e4unUcLbHPUkGp2GP8bz8ckt1VswK6Wf7MASqEP4XoUncz5C4AADhhtAyC63dRrbjSj7SBPajdiQlHdrepW+aqUvg1uspyI++fBHMGoLBLhmmrIqowHADmRrm8/4M6sSPNndWA6xKmYVHxdiDXNcLP6wDPu4Mb3yxA3N7TSSMXAreoVZ3RiTzPBzCqzTGL8q9rnvhOk8="
+        #- secure: "d3CxWiTvTACHVla8wWYT9xYpPwx3G3JC9hQxUZnxxJLusLMV30aUazeAKJwSx+kuHZTj1sGrNI8FFog27348L/wKXhW+VXS/BaauqPrSwh+K+tb0sVUFkVuGS2F2r8aGTFgnPzxRj/7VMbSgZ39yE9YufDWkS0CGEF2+AZIp+Pmmr9hq3H8dMj76MU3PUBYZoFm/vZHNGQhdMG1WH3rawk7RX1xh+gkNTrvQuAsobRKv06mPn7lsu17/eGmvCPkAfGTwpEu86H9TScySAViAG0+I+VW2rP/Z3LP6QO+mIjuypD1cWJ7ZZCO7nBoKXR3YI0JVhjBtAeI8TfhnQ48a4zcHlz7GkfpKSEXgNdNDcwIOF05XL36lbC2Oy5frk2V2BHfXHMLS1l8l3E1V0BASeR5k5ZOBEMYjGOzXFC58+HIckQCxFtKPkL/T1UuaG7JTDUz6V3NHjkk3/iFUqnPQUeBMZh6+0MMnmWheP+2rW4PuQdOoFwYqHaigwz+IfqG9xWct7bhNaW3IjFuCVr/pJ+GfVZHvnsv65FXQh6qNvhA8OF1pVvUrIruMLgUvc4fR5Ga90Xc8Z8wFg/5POSAyVy2o/AN66hzQiotj+tmfAqhiOEUPAsezDeZOMs7EMuKKnxWq4v7qWi+6/T6w/8plB9jOVWm3n+sjGZ/ZHYRD8MI="
+        #- *reference_jdk
+      #install:
+        #- openssl aes-256-cbc -K $encrypted_a1fb45ffe475_key -iv $encrypted_a1fb45ffe475_iv -in secrets.asc.enc -out secrets.asc -d
+        #- export ORG_GRADLE_PROJECT_signingKey=$(cat secrets.asc)
+        #- rm secrets.asc
+      #script:
+        #- ./gradlew publish -x test
 before_install:
   - curl "${GRAVIS}.install-jdk-travis.sh" --output .install-jdk-travis.sh
   - source .install-jdk-travis.sh
