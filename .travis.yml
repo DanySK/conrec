@@ -37,7 +37,7 @@ jobs:
       script:
         - ./gradlew clean check
     - stage: deploy
-      if:  type != pull_request AND repo = env(OFFICIAL_REPO_SLUG)
+      if:  type != pull_request AND repo = DanySK/conrec
       name: "Reports and deployment"
       os: *reference_os
       env:
