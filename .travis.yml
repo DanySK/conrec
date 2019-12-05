@@ -20,7 +20,7 @@ env:
     - GRAVIS="https://raw.githubusercontent.com/DanySK/Gravis-CI/master/"
     - TERM=dumb
     - OFFICIAL_REPO_SLUG="DanySK/conrec"
-  matrix:
+  jobs:
     - *reference_jdk
     # - JDK="adopt-openj9@1.8"
     #- JDK="adopt@1.11"
