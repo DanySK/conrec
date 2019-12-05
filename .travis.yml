@@ -35,6 +35,8 @@ jobs:
     - stage: check
       name: "Deep check on reference OS and JDK"
       os: *reference_os
+      env:
+        - *reference_jdk
       script: echo ciao
     - stage: check
       os: *reference_os
