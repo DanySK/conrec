@@ -22,9 +22,12 @@ env:
     - TERM=dumb
   matrix:
     - JDK="zulu@1.6"
-    - JDK="adopt-openj9@1.11.0"
-    - JDK="adopt@1.12.0"
-    - JDK="adopt-openj9@1.12.0"
+    - JDK="adopt@1.8"
+    - JDK="adopt-openj9@1.8"
+    - JDK="adopt@1.11"
+    - JDK="adopt-openj9@1.11"
+    - JDK="adopt@1"
+    - JDK="adopt-openj9@1"
 matrix:
   exclude:
     - os: *reference_os
