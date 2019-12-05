@@ -21,7 +21,6 @@ env:
     - GRAVIS="https://raw.githubusercontent.com/DanySK/Gravis-CI/master/"
     - TERM=dumb
   matrix:
-    - JDK="zulu@1.6"
     - JDK="adopt@1.8"
     - JDK="adopt-openj9@1.8"
     - JDK="adopt@1.11"
@@ -61,6 +60,13 @@ jobs:
 before_install:
   - curl "${GRAVIS}.install-jdk-travis.sh" --output .install-jdk-travis.sh
   - bash .install-jdk-travis.sh && source ~/.jdk_config
+  - export JAVA6_JDK="$(echo $($jabba ls-remote | grep -m1 1.6))"
+  - echo $JAVA6_JDK
+  - $jabba install $JAVA6_JDK
+  - $jabba use $JAVA6_JDK
+  - export JAVA6_HOME=$JAVA_HOME
+  - echo $JAVA6_HOME
+  - $jabba use $ACTUAL_JDK
 script:
   - cd "$TRAVIS_BUILD_DIR"/protelis
   - ./gradlew test --parallel --scan
