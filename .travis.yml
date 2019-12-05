@@ -13,8 +13,7 @@ dist: bionic
 stages:
   - check
   - test
-  - name: deploy
-    if: repo = env(OFFICIAL_REPO_SLUG) AND type != pull_request
+  - deploy
 env:
   global:
     - GRAVIS="https://raw.githubusercontent.com/DanySK/Gravis-CI/master/"
@@ -38,6 +37,7 @@ jobs:
       script:
         - ./gradlew clean check
     - stage: deploy
+      if: repo = env(OFFICIAL_REPO_SLUG) AND type != pull_request
       name: "Reports and deployment"
       os: *reference_os
       env:
