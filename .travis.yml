@@ -11,6 +11,7 @@ os:
 #  - osx
   - windows
   - *reference_os
+dist: bionic
 stages:
   - check
   - test
