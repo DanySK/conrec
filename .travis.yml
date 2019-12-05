@@ -14,7 +14,8 @@ os:
 stages:
   - check
   - test
-  - deploy
+  - name: deploy
+    if: repo = env(OFFICIAL_REPO_SLUG) AND type != pull_request
 env:
   global:
     - GRAVIS="https://raw.githubusercontent.com/DanySK/Gravis-CI/master/"
@@ -42,7 +43,6 @@ jobs:
         - ./gradlew clean check --parallel
     - stage: deploy
       name: "Reports and deployment"
-      if: repo = env(OFFICIAL_REPO_SLUG) AND type != pull_request
       os: *reference_os
       env:
         # Signing
