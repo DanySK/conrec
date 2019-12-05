@@ -31,14 +31,23 @@ matrix:
   exclude:
     - os: *reference_os
       env: *reference_jdk
+jobs:
   include:
-    - stage: check
-      name: "Deep check on reference OS and JDK"
-      os: *reference_os
-      env:
-        - *reference_jdk
-      script:
-        - ./gradlew clean check --parallel
+    - stage: test
+      script: ./test 1
+    - # stage name not required, will continue to use `test`
+      script: ./test 2
+    - stage: deploy
+      script: ./deploy
+#jobs:
+  #include:
+    #- stage: check
+      #name: "Deep check on reference OS and JDK"
+      #os: *reference_os
+      #env:
+        #- *reference_jdk
+      #script:
+        #- ./gradlew clean check --parallel
     #- stage: deploy
       #name: "Reports and deployment"
       #if: repo = env(OFFICIAL_REPO_SLUG) AND type != pull_request
