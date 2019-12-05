@@ -33,7 +33,6 @@ matrix:
   exclude:
     - os: *reference_os
       env: *reference_jdk
-jobs:
   include:
     - stage: check
       name: "Deep check on reference OS and JDK"
