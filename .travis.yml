@@ -22,11 +22,11 @@ env:
     - TERM=dumb
   matrix:
     - JDK="adopt@1.8"
-    - JDK="adopt-openj9@1.8"
-    - JDK="adopt@1.11"
-    - JDK="adopt-openj9@1.11"
-    - JDK="adopt@1"
-    - JDK="adopt-openj9@1"
+    #- JDK="adopt-openj9@1.8"
+    #- JDK="adopt@1.11"
+    #- JDK="adopt-openj9@1.11"
+    #- JDK="adopt@1"
+    #- JDK="adopt-openj9@1"
 matrix:
   exclude:
     - os: *reference_os
@@ -60,6 +60,7 @@ jobs:
 before_install:
   - curl "${GRAVIS}.install-jdk-travis.sh" --output .install-jdk-travis.sh
   - bash .install-jdk-travis.sh && source ~/.jdk_config
+  - echo jabba is $jabba
   - export JAVA6_JDK="$(echo $($jabba ls-remote | grep -m1 1.6))"
   - echo $JAVA6_JDK
   - $jabba install $JAVA6_JDK
