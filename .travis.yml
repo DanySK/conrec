@@ -32,7 +32,7 @@ jobs:
     - os: *reference_os
       env: *reference_jdk
   include:
-    - stage: test
+    - stage: check
       script: echo ciao
     - stage: check
       name: "Deep check on reference OS and JDK"
