@@ -33,7 +33,7 @@ jobs:
       os: *reference_os
       env:
         - *reference_jdk
-        - TEST=test
+        - CI=true
       script:
         - ./gradlew clean check
     - stage: deploy
