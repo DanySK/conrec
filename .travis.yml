@@ -69,7 +69,6 @@ before_install:
   - echo $JAVA6_HOME
   - $jabba use $ACTUAL_JDK
 script:
-  - cd "$TRAVIS_BUILD_DIR"/protelis
   - ./gradlew test --parallel --scan
 before_cache:
   - curl "${GRAVIS}.clean_gradle_cache.sh" --output .clean_gradle_cache.sh
