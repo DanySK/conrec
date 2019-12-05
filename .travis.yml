@@ -37,7 +37,7 @@ jobs:
       script:
         - ./gradlew clean check
     - stage: deploy
-      if: repo = env(OFFICIAL_REPO_SLUG) AND type != pull_request
+      if: repo = env(OFFICIAL_REPO_SLUG)
       name: "Reports and deployment"
       os: *reference_os
       env:
