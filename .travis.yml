@@ -11,7 +11,6 @@ os:
 #  - osx
   - windows
   - *reference_os
-dist: bionic
 stages:
   - check
   - test
@@ -23,7 +22,7 @@ env:
     - OFFICIAL_REPO_SLUG="DanySK/conrec"
   matrix:
     - *reference_jdk
-    - JDK="adopt-openj9@1.8"
+    # - JDK="adopt-openj9@1.8"
     #- JDK="adopt@1.11"
     #- JDK="adopt-openj9@1.11"
     #- JDK="adopt@1"
