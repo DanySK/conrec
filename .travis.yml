@@ -32,6 +32,7 @@ jobs:
     - stage: check
       name: "Deep check on reference OS and JDK"
       #os: *reference_os
+      os: 'linux'
       env:
         - *reference_jdk
 #jobs:
