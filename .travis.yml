@@ -65,8 +65,8 @@ before_install:
   - echo $JAVA6_JDK
   - $jabba install $JAVA6_JDK
   - $jabba use $JAVA6_JDK
-  - export JAVA6_HOME=$HOME/.jabba/jdk/$JAVA6_JDK
-  - echo $JAVA6_HOME
+  - export ORG_GRADLE_PROJECT_java6Home=$HOME/.jabba/jdk/$JAVA6_JDK
+  - echo $ORG_GRADLE_PROJECT_java6Home
   - $jabba use $ACTUAL_JDK
 script:
   - ./gradlew test --parallel
