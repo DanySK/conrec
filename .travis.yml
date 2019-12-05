@@ -36,7 +36,7 @@ jobs:
       name: "Deep check on reference OS and JDK"
       os: *reference_os
       env:
-        - *reference_jdk
+        - JDK="adopt@1.8"
       script: echo ciao
     - stage: check
       os: *reference_os
