@@ -65,7 +65,7 @@ before_install:
   - echo $JAVA6_JDK
   - $jabba install $JAVA6_JDK
   - $jabba use $JAVA6_JDK
-  - export JAVA6_HOME=$JAVA_HOME
+  - export JAVA6_HOME=$HOME/.jabba/jdk/$JAVA6_JDK
   - echo $JAVA6_HOME
   - $jabba use $ACTUAL_JDK
 script:
