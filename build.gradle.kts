@@ -1,3 +1,5 @@
+import org.apache.tools.ant.taskdefs.condition.Os
+
 plugins {
     id("org.danilopianini.git-sensitive-semantic-versioning") version "0.2.2"
     `java-library`
@@ -15,13 +17,18 @@ java {
 }
 
 if (System.getenv("CI") == true.toString()) {
-    tasks.withType<JavaCompile>().configureEach {
-        if (!name.contains("Test")) {
-            println("Sconfiguring $name")
-            options.apply {
-                isFork = true
-                val java6Home: String by project
-                forkOptions.javaHome = file(java6Home)
+    if (!Os.isFamily(Os.FAMILY_MAC)) {
+        /*
+         * Java 6 cannot be installed on CI on MacOS devices
+         */
+        tasks.withType<JavaCompile>().configureEach {
+            if (!name.contains("Test")) {
+                println("Sconfiguring $name")
+                options.apply {
+                    isFork = true
+                    val java6Home: String by project
+                    forkOptions.javaHome = file(java6Home)
+                }
             }
         }
     }
