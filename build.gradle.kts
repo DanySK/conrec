@@ -52,6 +52,13 @@ publishing {
             pom {
                 developers {
                     developer {
+                        name.set("Nicholas Yue")
+                    }
+                    developer {
+                        name.set("Lorenzo Paganelli")
+                        email.set("lorenzo.paganelli3@studio.unibo.it")
+                    }
+                    developer {
                         name.set("Danilo Pianini")
                         email.set("danilo.pianini@gmail.com")
                         url.set("http://www.danilopianini.org/")
