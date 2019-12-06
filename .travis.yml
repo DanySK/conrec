@@ -50,25 +50,9 @@ jobs:
         - rm secrets.asc
       script:
         - ./gradlew publish -x test
-#jobs:
   exclude:
     - os: *reference_os
       env: *reference_jdk
-  #include:
-    #- env: EXTRA_TESTS=true
-    #- stage: deploy
-      #env: NOTHING=test
-    #- stage: check
-      #name: "Deep check on reference OS and JDK"
-      #os: *reference_os
-      #script:
-        #- ./gradlew clean check --parallel
-    #- stage: check
-      #os: *reference_os
-      #env:
-        #- *reference_jdk
-      #script:
-        #- ./gradlew clean check --parallel
 before_install:
   - curl "${GRAVIS}.install-jdk-travis.sh" --output .install-jdk-travis.sh
   - source .install-jdk-travis.sh
@@ -85,3 +69,10 @@ cache:
   directories:
     - $HOME/.gradle/caches/
     - $HOME/.gradle/wrapper/
+notifications:
+  email:
+    recipients:
+      - danilo.pianini@gmail.com
+      - lorenzo.paganelli2@studio.unibo.it
+    on_success: never
+    on_failure: always
