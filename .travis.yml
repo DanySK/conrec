@@ -6,7 +6,7 @@ language: shell
 git:
   depth: false
 os:
-#  - osx
+  - osx
   - windows
   - *reference_os
 dist: bionic
@@ -33,9 +33,6 @@ jobs:
         - CI=true
       script:
         - ./gradlew clean check
-    - stage: test
-      os: osx
-      before_script: true
     - stage: deploy
       if:  type != pull_request AND repo = DanySK/conrec
       name: "Reports and deployment"
@@ -75,9 +72,8 @@ jobs:
 before_install:
   - curl "${GRAVIS}.install-jdk-travis.sh" --output .install-jdk-travis.sh
   - source .install-jdk-travis.sh
-before_script:
   - export JAVA6_JDK="$(echo $($jabba ls-remote | grep -m1 1.6))"
-  - $jabba install $JAVA6_JDK
+  - if [[ $TRAVIS_OS_NAME != "osx" ]]; then $jabba install $JAVA6_JDK; fi
   - export ORG_GRADLE_PROJECT_java6Home=$HOME/.jabba/jdk/$JAVA6_JDK
   - $jabba use $ACTUAL_JDK
 script:
