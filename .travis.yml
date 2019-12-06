@@ -75,6 +75,7 @@ jobs:
 before_install:
   - curl "${GRAVIS}.install-jdk-travis.sh" --output .install-jdk-travis.sh
   - source .install-jdk-travis.sh
+before_script:
   - export JAVA6_JDK="$(echo $($jabba ls-remote | grep -m1 1.6))"
   - $jabba install $JAVA6_JDK
   - export ORG_GRADLE_PROJECT_java6Home=$HOME/.jabba/jdk/$JAVA6_JDK
