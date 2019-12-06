@@ -12,23 +12,19 @@ gitSemVer {
     version = computeGitSemVer() // THIS IS MANDATORY, AND MUST BE LAST IN BLOCK
 }
 
-java {
-    sourceCompatibility = JavaVersion.VERSION_1_6
-}
-
 if (System.getenv("CI") == true.toString()) {
     if (!Os.isFamily(Os.FAMILY_MAC)) {
         /*
          * Java 6 cannot be installed on CI on MacOS devices
          */
+        java {
+            sourceCompatibility = JavaVersion.VERSION_1_6
+        }
         tasks.withType<JavaCompile>().configureEach {
-            if (!name.contains("Test")) {
-                println("Sconfiguring $name")
-                options.apply {
-                    isFork = true
-                    val java6Home: String by project
-                    forkOptions.javaHome = file(java6Home)
-                }
+            options.apply {
+                isFork = true
+                val java6Home: String by project
+                forkOptions.javaHome = file(java6Home)
             }
         }
     }
