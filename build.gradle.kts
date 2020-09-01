@@ -1,11 +1,11 @@
 import org.apache.tools.ant.taskdefs.condition.Os
 
 plugins {
-    id("org.danilopianini.git-sensitive-semantic-versioning") version "0.2.2"
+    id("org.danilopianini.git-sensitive-semantic-versioning")
     `java-library`
     signing
     `maven-publish`
-    id("org.danilopianini.publish-on-central") version "0.2.3"
+    id("org.danilopianini.publish-on-central")
 }
 
 gitSemVer {
@@ -40,10 +40,10 @@ group = "org.danilopianini" // This must be configured for the generated pom.xml
  * The plugin comes with defaults that are useful to myself. You should configure it to behave as you please:
  */
 publishOnCentral {
-    projectDescription.set("An algorithm for contouring surfaces") // Defaults to "No description provided"
-    projectLongName.set("Conrec") // Defaults to the project name
-    licenseName.set("MIT") // Defaults to "Apache License, Version 2.0"
-    licenseUrl.set("https://opensource.org/licenses/MIT") // Defaults to http://www.apache.org/licenses/LICENSE-2.0
+    projectDescription.set("An algorithm for contouring surfaces")
+    projectLongName.set("Conrec")
+    licenseName.set("MIT")
+    licenseUrl.set("https://opensource.org/licenses/MIT")
 }
 
 publishing {
@@ -68,4 +68,3 @@ publishing {
         }
     }
 }
-
