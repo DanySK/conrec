@@ -58,9 +58,9 @@ public class Conrec {
      *
      * @param render the render
      */
-    public  Conrec(Render render) throws Exception {
+    public  Conrec(Render render) {
         if (render == null){
-            throw new Exception ("Render null");
+            throw new IllegalArgumentException("Render can't be null");
         }
         this.render = render;
     }
