@@ -79,7 +79,10 @@ public class Conrec {
      *
      *
      * @param d  - matrix of data to contour
-     * @param ilb,iub,jlb,jub - index bounds of data matrix
+     * @param ilb - index bounds of data matrix
+     * @param iub - index bounds of data matrix
+     * @param jlb - index bounds of data matrix
+     * @param jub - index bounds of data matrix
      *
      *             The following two, one dimensional arrays (x and y) contain the horizontal and
      *             vertical coordinates of each sample points.
