@@ -32,7 +32,7 @@ jobs:
         - *reference_jdk
         - CI=true
       script:
-        - ./gradlew clean check
+        - ./gradlew clean check jaavadocJar
     - stage: deploy
       if:  type != pull_request AND repo = DanySK/conrec
       name: "Reports and deployment"
