@@ -53,7 +53,11 @@ public class Conrec {
     // Object that knows how to draw the contour
     private Render render = null;
  
-    /** Creates new Conrec */
+    /**
+     * Creates new Conrec
+     *
+     * @param render the render
+     */
     public  Conrec(Render render) throws Exception {
         if (render == null){
             throw new Exception ("Render null");
