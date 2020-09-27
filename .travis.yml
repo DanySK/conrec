@@ -12,7 +12,7 @@ os:
   - osx
   - windows
   - *reference_os
-dist: bionic
+dist: focal
 stages:
   - check
   - test
