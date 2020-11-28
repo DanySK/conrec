@@ -13,21 +13,6 @@ gitSemVer {
 }
 
 if (System.getenv("CI") == true.toString()) {
-    if (!Os.isFamily(Os.FAMILY_MAC)) {
-        /*
-         * Java 6 cannot be installed on CI on MacOS devices
-         */
-        java {
-            sourceCompatibility = JavaVersion.VERSION_1_6
-        }
-        tasks.withType<JavaCompile>().configureEach {
-            options.apply {
-                isFork = true
-                val java6Home: String by project
-                forkOptions.javaHome = file(java6Home)
-            }
-        }
-    }
     signing {
         val signingKey: String? by project
         val signingPassword: String? by project
