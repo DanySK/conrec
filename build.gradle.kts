@@ -8,10 +8,6 @@ plugins {
     id("org.danilopianini.publish-on-central")
 }
 
-gitSemVer {
-    version = computeGitSemVer() // THIS IS MANDATORY, AND MUST BE LAST IN BLOCK
-}
-
 if (System.getenv("CI") == true.toString()) {
     signing {
         val signingKey: String? by project
