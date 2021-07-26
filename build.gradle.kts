@@ -1,11 +1,10 @@
-import org.apache.tools.ant.taskdefs.condition.Os
-
 plugins {
     id("org.danilopianini.git-sensitive-semantic-versioning")
     `java-library`
     signing
     `maven-publish`
     id("org.danilopianini.publish-on-central")
+    id("kotlin-qa")
 }
 
 if (System.getenv("CI") == true.toString()) {
