@@ -1,10 +1,10 @@
 plugins {
-    id("org.danilopianini.git-sensitive-semantic-versioning")
     `java-library`
     signing
-    `maven-publish`
-    id("org.danilopianini.publish-on-central")
-    id("kotlin-qa")
+    alias(libs.plugins.gitSemVer)
+    alias(libs.plugins.multiJvmTesting)
+    alias(libs.plugins.publishOnCentral)
+    alias(libs.plugins.taskTree)
 }
 
 if (System.getenv("CI") == true.toString()) {
@@ -20,10 +20,10 @@ group = "org.danilopianini" // This must be configured for the generated pom.xml
  * The plugin comes with defaults that are useful to myself. You should configure it to behave as you please:
  */
 publishOnCentral {
-    projectDescription = "An algorithm for contouring surfaces"
-    projectLongName = "Conrec"
-    licenseName = "MIT"
-    licenseUrl = "https://opensource.org/licenses/MIT"
+    projectDescription.set("An algorithm for contouring surfaces")
+    projectLongName.set("Conrec")
+    licenseName.set("MIT")
+    licenseUrl.set("https://opensource.org/licenses/MIT")
 }
 
 publishing {
