@@ -5,7 +5,7 @@
 [bundles]
 
 [plugins]
-gitSemVer = "org.danilopianini.git-sensitive-semantic-versioning-gradle-plugin:1.1.9"
+gitSemVer = "org.danilopianini.git-sensitive-semantic-versioning-gradle-plugin:1.1.10"
 java-qa = "org.danilopianini.gradle-java-qa:1.10.0"
 multiJvmTesting = "org.danilopianini.multi-jvm-test-plugin:0.5.1"
 publishOnCentral = "org.danilopianini.publish-on-central:5.0.5"
