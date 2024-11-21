@@ -20,7 +20,7 @@ jobs:
         with:
           # Dry-deployment
           deploy-command: >-
-            ./gradlew uploadAll close --parallel
+            ./gradlew uploadAll close drop --parallel
           codecov-token: ${{ secrets.CODECOV_TOKEN }}
           should-run-codecov: ${{ runner.os == 'Linux' }}
           should-deploy: >-
