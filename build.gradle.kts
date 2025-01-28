@@ -20,6 +20,7 @@ group = "org.danilopianini" // This must be configured for the generated pom.xml
  * The plugin comes with defaults that are useful to myself. You should configure it to behave as you please:
  */
 publishOnCentral {
+    repoOwner = "DanySK"
     projectDescription.set("An algorithm for contouring surfaces")
     projectLongName.set("Conrec")
     licenseName.set("MIT")
