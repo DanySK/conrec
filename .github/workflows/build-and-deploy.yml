@@ -20,7 +20,7 @@ jobs:
         with:
           # Dry-deployment
           deploy-command: >-
-            ./gradlew uploadAll close dropStagingRepositoryOnMavenCentral --parallel
+            ./gradlew publishAllPublicationsToProjectLocalRepository zipMavenCentralPortalPublication validateMavenCentralPortalPublication dropMavenCentralPortalPublication
           codecov-token: ${{ secrets.CODECOV_TOKEN }}
           should-run-codecov: ${{ runner.os == 'Linux' }}
           should-deploy: >-
