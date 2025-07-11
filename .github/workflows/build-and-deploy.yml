@@ -16,11 +16,24 @@ jobs:
     steps:
       - name: Checkout
         uses: DanySK/action-checkout@0.2.22
+      - name: Determine dry-run flag
+        id: check_branch
+        shell: bash
+        run: |
+          ruby << 'RUBY' >> $GITHUB_OUTPUT
+            branch = ENV['GITHUB_REF'].sub(/^refs\/heads\//, '')
+            keywords = %w[gradle kotlin publish release deploy]
+            dry = keywords.any? { |kw| branch.include?(kw) } ? '' : '--dry-run'
+            puts "dry_run=#{dry}"
+          RUBY
       - uses: DanySK/build-check-deploy-gradle-action@4.0.1
         with:
-          # Dry-deployment
           deploy-command: >-
-            ./gradlew uploadAll close dropStagingRepositoryOnMavenCentral --parallel
+            ./gradlew
+            publishAllPublicationsToProjectLocalRepository 
+            zipMavenCentralPortalPublication 
+            releaseMavenCentralPortalPublication
+            ${{ steps.check_branch.outputs.dry_run }}
           codecov-token: ${{ secrets.CODECOV_TOKEN }}
           should-run-codecov: ${{ runner.os == 'Linux' }}
           should-deploy: >-
