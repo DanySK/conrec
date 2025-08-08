@@ -7,6 +7,6 @@
 [plugins]
 gitSemVer = "org.danilopianini.git-sensitive-semantic-versioning-gradle-plugin:5.1.7"
 java-qa = "org.danilopianini.gradle-java-qa:1.128.0"
-multiJvmTesting = "org.danilopianini.multi-jvm-test-plugin:3.6.0"
+multiJvmTesting = "org.danilopianini.multi-jvm-test-plugin:3.6.1"
 publishOnCentral = "org.danilopianini.publish-on-central:9.1.0"
 taskTree = "com.dorongold.task-tree:4.0.1"
