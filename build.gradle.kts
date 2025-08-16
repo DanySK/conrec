@@ -2,9 +2,14 @@ plugins {
     `java-library`
     signing
     alias(libs.plugins.gitSemVer)
-    alias(libs.plugins.multiJvmTesting)
     alias(libs.plugins.publishOnCentral)
     alias(libs.plugins.taskTree)
+}
+
+java {
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(8))
+    }
 }
 
 if (System.getenv("CI") == true.toString()) {
@@ -15,10 +20,9 @@ if (System.getenv("CI") == true.toString()) {
     }
 }
 
+
 group = "org.danilopianini" // This must be configured for the generated pom.xml to work correctly
-/*
- * The plugin comes with defaults that are useful to myself. You should configure it to behave as you please:
- */
+
 publishOnCentral {
     repoOwner = "DanySK"
     projectDescription.set("An algorithm for contouring surfaces")
