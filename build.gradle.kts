@@ -27,6 +27,8 @@ publishOnCentral {
     licenseUrl.set("https://opensource.org/licenses/MIT")
 }
 
+tasks.withType<Test>().configureEach { failOnNoDiscoveredTests = false }
+
 publishing {
     publications {
         withType<MavenPublication> {
