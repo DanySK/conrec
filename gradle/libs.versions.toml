@@ -6,5 +6,5 @@
 
 [plugins]
 gitSemVer = "org.danilopianini.git-sensitive-semantic-versioning-gradle-plugin:7.0.24"
-publishOnCentral = "org.danilopianini.publish-on-central:9.2.11"
+publishOnCentral = "org.danilopianini.publish-on-central:9.2.12"
 taskTree = "com.dorongold.task-tree:4.0.2"
