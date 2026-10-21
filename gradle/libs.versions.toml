@@ -5,6 +5,6 @@
 [bundles]
 
 [plugins]
-gitSemVer = "org.danilopianini.git-sensitive-semantic-versioning-gradle-plugin:7.2.0"
+gitSemVer = "org.danilopianini.git-sensitive-semantic-versioning-gradle-plugin:7.3.0"
 publishOnCentral = "org.danilopianini.publish-on-central:9.2.14"
 taskTree = "com.dorongold.task-tree:4.0.2"
